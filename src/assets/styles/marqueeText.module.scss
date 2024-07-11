@@ -1,0 +1,52 @@
+.marqueeContainer {
+    width: 100%;
+    overflow: hidden;
+    background-color: #ddc92a;
+    margin-block: 9vw;
+    border: 3px solid;
+    border-style: solid none;
+    padding-block: 0.8vw;
+
+    .marquee {
+        width: 200%;
+
+        .marqueeInner {
+            display: flex;
+            gap: 1.2vw;
+            width: 100%;
+            animation: marquee 15s linear infinite;
+
+            .item {
+                flex: 1;
+                display: flex;
+                align-items: center;
+                gap: 1.2vw;
+
+                span.text {
+                    font-family: "Roboto", sans-serif;
+                    text-transform: uppercase;
+                    font-size: max(0.75rem, 2.5vw);
+                    letter-spacing: -0.1vw;
+                    text-wrap: nowrap;
+                }
+
+                span.square {
+                    background-color: black;
+                    height: max(2px, 0.35vw);
+                    width: max(2px, 0.3vw);
+                }
+            }
+
+        }
+    }
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
