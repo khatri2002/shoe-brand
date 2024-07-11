@@ -4,8 +4,7 @@ import styles from "../assets/styles/landing.module.scss";
 
 import featuredShoeImg1 from "../assets/images/featured_shoe_img_1.jpeg";
 import featuredShoeImg2 from "../assets/images/featured_shoe_img_2.jpeg";
-import {ReactComponent as CircleIcon} from "../assets/images/circle_icon.svg";
-import {ReactComponent as ArrowIcon} from "../assets/images/arrow_icon.svg";
+import Button from "./Button";
 
 function Landing() {
 
@@ -68,13 +67,7 @@ function Landing() {
                     </div>
                 </div>
 
-                <div className={styles.btnContainer}>
-                    <h3>Explore</h3>
-                    <div className={styles.btn}>
-                        <CircleIcon className={styles.iconCircle} />
-                        <ArrowIcon className={styles.iconArrow} />
-                    </div>
-                </div>
+                <Button title="Explore" />
 
             </div>
         </>
