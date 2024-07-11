@@ -18,13 +18,13 @@
         cursor: pointer;
 
         .iconCircle {
-            height: max(5vw, 1.3rem);
+            height: max(5vw, 1.7rem);
             transition: all 0.5s ease-in-out;
         }
 
         .iconArrow {
             position: absolute;
-            height: 3vw;
+            height: max(1rem, 3vw);
             left: 0;
             top: 0;
             right: 0;
