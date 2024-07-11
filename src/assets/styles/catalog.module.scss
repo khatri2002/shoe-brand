@@ -1,6 +1,9 @@
+.container {
+    margin-inline: 10vw;
+}
+
 .textContainer {
     font-family: "Roboto", sans-serif;
-    margin-inline: 10vw;
     display: flex;
     justify-content: end;
 
@@ -40,7 +43,6 @@
     margin-top: 7vw;
     display: flex;
     gap: max(2vw, 0.6rem);
-    margin-inline: 10vw;
 
     .card {
         background-color: #e7d6c4;

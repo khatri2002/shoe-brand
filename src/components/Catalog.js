@@ -1,10 +1,13 @@
+import Button from "../components/Button";
+
 import styles from "../assets/styles/catalog.module.scss";
+
 import shoeImg1 from "../assets/images/shoe_1.png";
 import unisexLogo from "../assets/images/unisex_logo.svg";
 
 function Catalog() {
     return (
-        <>
+        <div className={styles.container}>
             <div className={styles.textContainer}>
                 <div className={styles.textWrapper}>
                     <h2>
@@ -159,7 +162,9 @@ function Catalog() {
                     </span>
                 </div>
             </div>
-        </>
+
+            <Button title="Explore" />
+        </div>
     );
 }
 
