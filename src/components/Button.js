@@ -8,9 +8,12 @@ function Button({title, direction}) {
     return (
         <>
             <div className={styles.btnContainer}>
-                <h3>
-                    {title}
-                </h3>
+                {
+                    title &&
+                    <h3>
+                        {title}
+                    </h3>
+                }
                 <div className={styles.btn}>
                     <CircleIcon className={styles.iconCircle} />
                     <ArrowIcon className={`${styles.iconArrow} ${direction==='right' ? styles.directionRight : styles.directionUp}`} />
