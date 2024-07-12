@@ -7,6 +7,7 @@
 
     .textSmall {
         font-size: max(0.6rem, 1vw);
+        text-wrap: nowrap;
     }
 
     .subscribeItem {
@@ -48,6 +49,7 @@
 
             button {
                 background-color: transparent;
+                color: #000;
                 border: none;
                 text-transform: uppercase;
                 font-size: max(0.6rem, 1vw);
@@ -99,8 +101,9 @@
         }
 
         .gridItem {
-            grid-template-columns: 35vw 35vw auto;
+            grid-template-columns: 27vw 35vw auto;
             row-gap: 1rem;
+            column-gap: 1.1rem;
         }
     }
 }
