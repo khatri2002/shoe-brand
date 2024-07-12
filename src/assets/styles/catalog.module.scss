@@ -85,8 +85,15 @@
     }
 }
 
+.btnContainer {
+    display: flex;
+    justify-content: end;
+    margin-top: 3.5vw;
+}
+
 .reviewsContainer {
-    margin-block: 10vw;
+    margin-top: 10vw;
+    margin-bottom: 17vw;
     display: flex;
     justify-content: end;
 

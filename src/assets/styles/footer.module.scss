@@ -1,0 +1,88 @@
+.footerContainer {
+    display: grid;
+    padding: 5vw 4vw;
+    text-transform: uppercase;
+    font-family: "Roboto", sans-serif;
+    grid-template-columns: 45vw auto auto auto;
+
+    .textSmall {
+        font-size: 1vw;
+    }
+
+    .subscribeItem {
+        span {
+            display: block;
+            font-size: 1vw;
+        }
+
+        img {
+            width: 3.8vw;
+            margin-top: 0.7vw;
+        }
+    }
+
+    .navigationItem {
+        ul {
+            list-style-type: none;
+            margin-top: 1.2vw;
+            font-size: 1.9vw;
+
+            li {
+                margin-block: 0.7vw;
+            }
+        }
+    }
+
+    .inputItem {
+        label {
+            display: block;
+            font-size: 0.8vw;
+            margin-bottom: 1.3vw;
+        }
+
+        .inputContainer {
+            padding-block: 1vw;
+            position: relative;
+
+            &::before {
+                position: absolute;
+                content: "";
+                background-color: black;
+                height: 1px;
+                width: 27vw;
+                bottom: 0;
+            }
+
+            input {
+                outline: none;
+                border: none;
+                background-color: transparent;
+                font-size: 1.5vw;
+                width: 23vw;
+            }
+
+            button {
+                background-color: transparent;
+                border: none;
+                text-transform: uppercase;
+                font-size: 1vw;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .textItem {
+        align-self: end;
+    }
+
+    .socialsItem {
+        align-self: end;
+        display: flex;
+        gap: 0.6vw;
+
+        .icon {
+            width: 1.7vw;
+            height: 1.7vw;
+        }
+    }
+}

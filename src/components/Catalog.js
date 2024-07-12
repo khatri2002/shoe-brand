@@ -163,7 +163,9 @@ function Catalog() {
                 </div>
             </div>
 
-            <Button title="Explore" />
+            <div className={styles.btnContainer}>
+                <Button title="Explore" direction="right" />
+            </div>
 
             <div className={styles.reviewsContainer}>
                 <div className={styles.review}>

@@ -67,7 +67,9 @@ function Landing() {
                     </div>
                 </div>
 
-                <Button title="Explore" />
+                <div className={styles.btnContainer}>
+                    <Button title="Explore" direction="right" />
+                </div>
 
             </div>
         </>
