@@ -1,46 +1,30 @@
 .footerContainer {
-    display: grid;
-    padding: 5vw 4vw;
     text-transform: uppercase;
     font-family: "Roboto", sans-serif;
-    grid-template-columns: 45vw auto auto auto;
+    padding: 5vw 4vw;
+    display: flex;
+    gap: 14vw;
 
     .textSmall {
         font-size: 1vw;
     }
 
     .subscribeItem {
-        span {
-            display: block;
-            font-size: 1vw;
-        }
+        display: flex;
+        flex-direction: column;
 
         img {
             width: 3.8vw;
             margin-top: 0.7vw;
         }
-    }
 
-    .navigationItem {
-        ul {
-            list-style-type: none;
-            margin-top: 1.2vw;
-            font-size: 1.9vw;
-
-            li {
-                margin-block: 0.7vw;
-            }
-        }
-    }
-
-    .inputItem {
         label {
-            display: block;
             font-size: 0.8vw;
-            margin-bottom: 1.3vw;
+            margin-top: 12vw;
         }
 
         .inputContainer {
+            display: flex;
             padding-block: 1vw;
             position: relative;
 
@@ -71,18 +55,36 @@
         }
     }
 
-    .textItem {
-        align-self: end;
-    }
+    .gridItem {
+        width: 100%;
+        display: grid;
+        grid-template-columns: auto auto auto;
 
-    .socialsItem {
-        align-self: end;
-        display: flex;
-        gap: 0.6vw;
+        .navigationItem {
+            ul {
+                list-style-type: none;
+                margin-top: 1.2vw;
+                font-size: 1.9vw;
 
-        .icon {
-            width: 1.7vw;
-            height: 1.7vw;
+                li {
+                    margin-block: 0.7vw;
+                }
+            }
+        }
+
+        .textItem {
+            align-self: end;
+        }
+
+        .socialsItem {
+            align-self: end;
+            display: flex;
+            gap: 0.6vw;
+
+            .icon {
+                width: 1.7vw;
+                height: 1.7vw;
+            }
         }
     }
 }
