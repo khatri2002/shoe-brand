@@ -32,7 +32,7 @@
             }
         }
 
-        @media(width <= 480px) {
+        @media(width <=480px) {
             width: 100% !important;
         }
     }
@@ -72,7 +72,7 @@
             font-family: "DM Serif Display", serif;
             font-size: max(1.5rem, 3.3vw);
         }
-        
+
         .strikePrice {
             font-size: max(0.7rem, 1.2vw);
             margin-top: 0.6vw;
@@ -81,6 +81,45 @@
         .price {
             font-size: max(1.1rem, 2vw);
             margin-top: 0.4vw;
+        }
+    }
+}
+
+.reviewsContainer {
+    margin-block: 10vw;
+    display: flex;
+    justify-content: end;
+
+    .review {
+        display: flex;
+        gap: 5vw;
+        width: max(20rem, 45vw);
+
+        .leftTitle {
+            align-content: center;
+
+            h3 {
+                font-family: "Kaushan Script", cursive;
+                text-wrap: nowrap;
+                font-size: max(1.1rem, 2.5vw);
+                position: relative;
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    background-image: url("../images/text_bg.svg");
+                    background-repeat: no-repeat;
+                    width: max(3.5rem, 8vw);
+                    height: max(5rem, 7vw);
+                    left: min(-1.5rem, -4vw);
+                    top: min(-0.8rem, -1.5vw);
+                }
+            }
+        }
+
+        .rightContent {
+            font-family: "Roboto", sans-serif;
+            font-size: max(0.7rem, 1.1vw);
         }
     }
 }

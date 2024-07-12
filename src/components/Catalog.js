@@ -164,6 +164,19 @@ function Catalog() {
             </div>
 
             <Button title="Explore" />
+
+            <div className={styles.reviewsContainer}>
+                <div className={styles.review}>
+                    <div className={styles.leftTitle}>
+                        <h3>William Gibson</h3>
+                    </div>
+                    <div className={styles.rightContent}>
+                        <span>
+                            Good things come to those who wait - Deplace Maison is what has been missing in the modern fashion industry for years. Buy a shoe of high quality and design it finally happened.
+                        </span>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 }
