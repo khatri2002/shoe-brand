@@ -36,6 +36,10 @@
             }
         }
     }
+
+    @media (width <= 992px) {
+        padding-top: max(3rem, 10vw);
+    }
 }
 
 .imgContainer {

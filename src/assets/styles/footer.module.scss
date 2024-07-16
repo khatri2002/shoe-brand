@@ -1,9 +1,14 @@
 .footerContainer {
+    box-sizing: border-box;
+    background-color: #f6f3e8;
     text-transform: uppercase;
     font-family: "Roboto", sans-serif;
     padding: 5vw 4vw;
     display: flex;
     gap: 14vw;
+    position: absolute;
+    width: 100%;
+    z-index: 999;
 
     .textSmall {
         font-size: max(0.6rem, 1vw);
