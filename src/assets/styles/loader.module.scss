@@ -1,0 +1,50 @@
+.loaderContainer {
+    background-color: #000;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    z-index: 999999;
+    transition: transform 0.5s ease-out;
+    transform: translateY(0);
+
+    .percentageContainer {
+        // border: 1px solid white;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        height: 15vw;
+        // overflow: hidden;
+
+        span {
+            display: inline-table;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            color: #fff;
+            font-family: "Roboto", sans-serif;
+            font-size: 15vw;
+            letter-spacing: -1rem;
+            transition: transform 0.5s ease-out;
+            transform: translateY(-100%);
+        }
+
+        span.active {
+            transform: translateY(0);
+        }
+
+        span.exit {
+            transform: translateY(100%);
+        }
+    }
+}
+
+.loaderContainer.hidden {
+    transform: translateY(-100%);
+}
