@@ -42,6 +42,7 @@
     gap: max(2vw, 0.6rem);
     padding-left: 18vw;
     cursor: grab;
+    transform: translateX(100%);
 }
 .cardsContainer.active {
     cursor: grabbing;

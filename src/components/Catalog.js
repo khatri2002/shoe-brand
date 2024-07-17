@@ -1,17 +1,24 @@
 import Button from "../components/Button";
 
 import styles from "../assets/styles/catalog.module.scss";
+import animationStyles from "../assets/styles/animations.module.scss";
 
 import shoeImg1 from "../assets/images/shoe_1.png";
 import unisexLogo from "../assets/images/unisex_logo.svg";
 import Card from "./Card";
 import { useRef, useState } from "react";
+import UseElementOnScreen from "../Hooks/UseElementOnScreen";
 
 function Catalog() {
 
     const tempArr = Array(10).fill(0);
 
     const cardsContainerRef = useRef(null);
+    const cardsWrapperRef = useRef(null);
+
+    const [isCardsWrapperVisible] = UseElementOnScreen({ threshold: 0.5 }, cardsWrapperRef);
+
+    // Mouse events for scrolling the cards container
     const [isDown, setIsDown] = useState(false);
     const [startX, setStartX] = useState(0);
     const [scrollLeft, setScrollLeft] = useState(0);
@@ -53,28 +60,36 @@ function Catalog() {
             </div>
 
             <div
-                className={`${styles.cardsContainer} ${isDown ? styles.active : ""}`}
-                ref={cardsContainerRef}
-                onMouseDown={handleMouseDown}
-                onMouseMove={handleMouseMove}
-                onMouseLeave={handleMouseLeave}
-                onMouseUp={handleMouseUp}
+                ref={cardsWrapperRef}
             >
-                {
-                    tempArr.map((_, index) => {
-                        return (
-                            <Card
-                                key={index}
-                                productImg={shoeImg1}
-                                brandImg={unisexLogo}
-                                numberText="01"
-                                productTitle="Cactus"
-                                strikePrice="199"
-                                price="99"
-                            />
-                        );
-                    })
-                }
+                <div
+                    className={
+                        `${styles.cardsContainer} 
+                        ${isDown ? styles.active : ""}
+                        ${isCardsWrapperVisible ? animationStyles.slideLeft : ""}
+                    `}
+                    ref={cardsContainerRef}
+                    onMouseDown={handleMouseDown}
+                    onMouseMove={handleMouseMove}
+                    onMouseLeave={handleMouseLeave}
+                    onMouseUp={handleMouseUp}
+                >
+                    {
+                        tempArr.map((_, index) => {
+                            return (
+                                <Card
+                                    key={index}
+                                    productImg={shoeImg1}
+                                    brandImg={unisexLogo}
+                                    numberText="01"
+                                    productTitle="Cactus"
+                                    strikePrice="199"
+                                    price="99"
+                                />
+                            );
+                        })
+                    }
+                </div>
             </div>
 
             <div className={styles.btnContainer}>
