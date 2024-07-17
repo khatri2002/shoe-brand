@@ -4,38 +4,30 @@ import styles from "../assets/styles/loader.module.scss";
 function Loader() {
 
     const [loading, setLoading] = useState(true);
-    const percentages = [30, 60, 90, 100];
-    const [currentPercentage, setCurrentPercentage] = useState(0);
-    const [previousPercentage, setPreviousPercentage] = useState(0);
-    const [percentageMap, setPercentageMap] = useState({
-        current: 0,
-        previous: 0
-    });
+
+    const percentages = [30, 68, 87, 100];
+    const [activeIndex, setActiveIndex] = useState(0);
+    const [exitIndices, setExitIndices] = useState([]);
 
     useEffect(() => {
-        // const timer = setTimeout(() => {
-        //     setLoading(false);
-        // }, 1000);
 
-        // return () => clearTimeout(timer);
+        document.body.style.overflow = "hidden";
 
-        let currentIndex = 0;
         const percentageInterval = setInterval(() => {
-            setPercentageMap((prevState) => {
-                return {
-                    current: percentages[currentIndex],
-                    previous: prevState.current
-                }
-            });
-            currentIndex++;
-
-            if(currentIndex === percentages.length) {
+            if(activeIndex < percentages.length - 1) {
+                setExitIndices([...exitIndices, activeIndex]);
+                setActiveIndex(activeIndex + 1);
+            } else {
                 clearInterval(percentageInterval);
+                setLoading(false);
+                document.body.style.overflow = "auto";
             }
-        }, 1000);
+        }, 550);
 
-        return () => clearInterval(percentageInterval);
-    }, []); 
+        return () => {
+            clearInterval(percentageInterval);
+        }
+    });
 
     return (
         <>
@@ -43,16 +35,32 @@ function Loader() {
                 <div className={styles.percentageContainer}>
                     {
                         percentages.map((percentage, index) => {
+
+                            const className = index === activeIndex
+                            ? styles.active
+                            : exitIndices.includes(index)
+                            ? styles.exit
+                            : "";
+
                             return (
                                 <span 
                                     key={index}
-                                    className={`${percentageMap.current===percentage ? styles.active : ''} ${percentageMap.previous===percentage ? styles.exit : ''}`}
+                                    className={className}
                                 >
                                     {percentage} %
                                 </span>
                             )
                         })
                     }
+                </div>
+
+                <div className={styles.copyrightContainer}>
+                    <span>
+                        &#169; 2020 Deplace Maison
+                    </span>
+                    <span>
+                        All rights reserved.
+                    </span>
                 </div>
             </div>
         </>
