@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import styles from "../assets/styles/loader.module.scss";
+import animationStyles from "../assets/styles/animations.module.scss";
 
 function Loader() {
 
@@ -31,7 +32,7 @@ function Loader() {
 
     return (
         <>
-            <div className={`${styles.loaderContainer} ${!loading && styles.hidden}`}>
+            <div className={`${styles.loaderContainer} ${!loading && animationStyles.slideTop}`}>
                 <div className={styles.percentageContainer}>
                     {
                         percentages.map((percentage, index) => {
