@@ -29,12 +29,12 @@ function Landing() {
             <div className={styles.container}>
 
                 <div className={styles.heroTextContainer}>
-                    <div className={styles.heroTextUpper}>
-                        <h1 className={animationStyles.slideTopText}>Spring,</h1>
+                    <div className={`${styles.heroTextUpper} ${animationStyles.wrapper}`}>
+                        <h1 className={animationStyles.slideTop1}>Spring,</h1>
                     </div>
-                    <div className={styles.heroTextLower}>
-                        <h1 className={animationStyles.slideTopText}>Summer</h1>
-                        <h3 className={animationStyles.slideTopText}>
+                    <div className={`${styles.heroTextLower} ${animationStyles.wrapper}`}>
+                        <h1 className={animationStyles.slideTop2}>Summer</h1>
+                        <h3 className={animationStyles.slideTop3}>
                             <span>Coll.</span>
                             <span>2021</span>
                         </h3>
@@ -42,30 +42,34 @@ function Landing() {
                 </div>
 
                 <div className={styles.imgContainer}>
-                    <div className={styles.imgCard}>
-                        <div className={styles.imgContainer}>
-                            <img
-                                src={featuredShoeImg1}
-                                alt="Featured Shoe - 2"
-                                style={{ transform: `scale(${zoom})` }}
-                            />
-                        </div>
-                        <div className={styles.lowerTextContainer}>
-                            <span>(01)</span>
-                            <span>MAN</span>
+                    <div className={animationStyles.wrapper}>
+                        <div className={`${styles.imgCard} ${animationStyles.slideTop1}`}>
+                            <div className={styles.imgContainer}>
+                                <img
+                                    src={featuredShoeImg1}
+                                    alt="Featured Shoe - 2"
+                                    style={{ transform: `scale(${zoom})` }}
+                                />
+                            </div>
+                            <div className={styles.lowerTextContainer}>
+                                <span>(01)</span>
+                                <span>MAN</span>
+                            </div>
                         </div>
                     </div>
-                    <div className={styles.imgCard}>
-                        <div className={styles.imgContainer}>
-                            <img
-                                src={featuredShoeImg2}
-                                alt="Featured Shoe - 2"
-                                style={{ transform: `scale(${zoom})` }}
-                            />
-                        </div>
-                        <div className={styles.lowerTextContainer}>
-                            <span>(02)</span>
-                            <span>WMNS</span>
+                    <div className={animationStyles.wrapper}>
+                        <div className={`${styles.imgCard} ${animationStyles.slideTop2}`}>
+                            <div className={styles.imgContainer}>
+                                <img
+                                    src={featuredShoeImg2}
+                                    alt="Featured Shoe - 2"
+                                    style={{ transform: `scale(${zoom})` }}
+                                />
+                            </div>
+                            <div className={styles.lowerTextContainer}>
+                                <span>(02)</span>
+                                <span>WMNS</span>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -32,7 +32,7 @@ function Loader() {
 
     return (
         <>
-            <div className={`${styles.loaderContainer} ${!loading && animationStyles.slideTop}`}>
+            <div className={`${styles.loaderContainer} ${!loading && animationStyles.slideTopLoader}`}>
                 <div className={styles.percentageContainer}>
                     {
                         percentages.map((percentage, index) => {

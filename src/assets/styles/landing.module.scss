@@ -17,14 +17,9 @@
         line-height: max(10vw, 3rem);
     }
 
-    .heroTextUpper {
-        overflow: hidden;
-    }
-
     .heroTextLower {
         display: flex;
         column-gap: max(2.5vw, 1rem);
-        overflow: hidden;
 
         h3 {
             font-size: max(0.85rem, 3vw);

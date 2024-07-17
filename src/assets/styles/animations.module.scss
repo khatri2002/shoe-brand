@@ -1,7 +1,11 @@
-.slideTop {
-    animation: slide-top 0.5s cubic-bezier(0.895, 0.030, 0.685, 0.220) both; // easeInQuart
+.wrapper {
+    overflow: hidden;
 }
-@keyframes slide-top {
+
+.slideTopLoader {
+    animation: slide-top-loader 0.5s cubic-bezier(0.895, 0.030, 0.685, 0.220) both; // easeInQuart
+}
+@keyframes slide-top-loader {
     0% {
         transform: translateY(0);
     }
@@ -11,10 +15,16 @@
     }
 }
 
-.slideTopText {
-    animation: slide-top-text 0.8s cubic-bezier( 0.23, 0.94, 0.57, 0.82 ) 3s both;
+.slideTop1 {
+    animation: slide-top 0.8s cubic-bezier( 0.23, 0.94, 0.55, 0.98 ) 3s both;
 }
-@keyframes slide-top-text {
+.slideTop2 {
+    animation: slide-top 0.8s cubic-bezier( 0.23, 0.94, 0.55, 0.98 ) 3.1s both;
+}
+.slideTop3 {
+    animation: slide-top 0.8s cubic-bezier( 0.23, 0.94, 0.55, 0.98 ) 3.2s both;
+}
+@keyframes slide-top {
     0% {
         transform: translateY(100%);
     }
