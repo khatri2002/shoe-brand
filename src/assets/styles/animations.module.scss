@@ -1,7 +1,6 @@
 .slideTop {
     animation: slide-top 0.5s cubic-bezier(0.895, 0.030, 0.685, 0.220) both; // easeInQuart
 }
-
 @keyframes slide-top {
     0% {
         transform: translateY(0);
@@ -9,5 +8,18 @@
 
     100% {
         transform: translateY(-100%);
+    }
+}
+
+.slideTopText {
+    animation: slide-top-text 0.8s cubic-bezier( 0.23, 0.94, 0.57, 0.82 ) 3s both;
+}
+@keyframes slide-top-text {
+    0% {
+        transform: translateY(100%);
+    }
+
+    100% {
+        transform: translateY(0);
     }
 }

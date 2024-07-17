@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
 import styles from "../assets/styles/landing.module.scss";
+import animationStyles from "../assets/styles/animations.module.scss";
 
 import featuredShoeImg1 from "../assets/images/featured_shoe_img_1.jpeg";
 import featuredShoeImg2 from "../assets/images/featured_shoe_img_2.jpeg";
@@ -28,10 +29,12 @@ function Landing() {
             <div className={styles.container}>
 
                 <div className={styles.heroTextContainer}>
-                    <h1>Spring,</h1>
+                    <div className={styles.heroTextUpper}>
+                        <h1 className={animationStyles.slideTopText}>Spring,</h1>
+                    </div>
                     <div className={styles.heroTextLower}>
-                        <h1>Summer</h1>
-                        <h3>
+                        <h1 className={animationStyles.slideTopText}>Summer</h1>
+                        <h3 className={animationStyles.slideTopText}>
                             <span>Coll.</span>
                             <span>2021</span>
                         </h3>
