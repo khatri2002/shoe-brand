@@ -4,10 +4,46 @@ import styles from "../assets/styles/catalog.module.scss";
 
 import shoeImg1 from "../assets/images/shoe_1.png";
 import unisexLogo from "../assets/images/unisex_logo.svg";
+import Card from "./Card";
+import { useRef, useState } from "react";
 
 function Catalog() {
+
+    const tempArr = Array(10).fill(0);
+
+    const cardsContainerRef = useRef(null);
+    const [isDown, setIsDown] = useState(false);
+    const [startX, setStartX] = useState(0);
+    const [scrollLeft, setScrollLeft] = useState(0);
+
+    const handleMouseDown = (e) => {
+        setIsDown(true);
+        const cardsContainer = cardsContainerRef.current;
+        const startX = e.pageX - cardsContainer.offsetLeft;
+        setStartX(startX);
+        const scrollLeft = cardsContainer.scrollLeft;
+        setScrollLeft(scrollLeft);
+    }
+
+    const handleMouseMove = (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const cardsContainer = cardsContainerRef.current;
+        const x = e.pageX - cardsContainer.offsetLeft;
+        const walk = x - startX;
+        cardsContainer.scrollLeft = scrollLeft - walk;
+    }
+
+    const handleMouseLeave = () => {
+        setIsDown(false);
+    }
+
+    const handleMouseUp = () => {
+        setIsDown(false);
+    }
+
     return (
-        <div className={styles.container}>
+        <>
             <div className={styles.textContainer}>
                 <div className={styles.textWrapper}>
                     <h2>
@@ -16,151 +52,29 @@ function Catalog() {
                 </div>
             </div>
 
-            <div className={styles.cardsContainer}>
-                <div className={styles.card}>
-                    <img
-                        className={styles.productImg}
-                        src={shoeImg1}
-                        alt=""
-                    />
-                    <img
-                        className={styles.brandImg}
-                        src={unisexLogo}
-                        alt=""
-                    />
-                    <span className={styles.numberText}>
-                        ss/20
-                    </span>
-                    <h3 className={styles.productTitle}>
-                        Cactus
-                    </h3>
-                    <del className={styles.strikePrice}>
-                        &#8364; 300 EUR
-                    </del>
-                    <span className={styles.price}>
-                        &#8364; 180 EUR
-                    </span>
-                </div>
-                <div className={styles.card}>
-                    <img
-                        className={styles.productImg}
-                        src={shoeImg1}
-                        alt=""
-                    />
-                    <img
-                        className={styles.brandImg}
-                        src={unisexLogo}
-                        alt=""
-                    />
-                    <span className={styles.numberText}>
-                        ss/20
-                    </span>
-                    <h3 className={styles.productTitle}>
-                        Cactus
-                    </h3>
-                    <del className={styles.strikePrice}>
-                        &#8364; 300 EUR
-                    </del>
-                    <span className={styles.price}>
-                        &#8364; 180 EUR
-                    </span>
-                </div>
-                <div className={styles.card}>
-                    <img
-                        className={styles.productImg}
-                        src={shoeImg1}
-                        alt=""
-                    />
-                    <img
-                        className={styles.brandImg}
-                        src={unisexLogo}
-                        alt=""
-                    />
-                    <span className={styles.numberText}>
-                        ss/20
-                    </span>
-                    <h3 className={styles.productTitle}>
-                        Cactus
-                    </h3>
-                    <del className={styles.strikePrice}>
-                        &#8364; 300 EUR
-                    </del>
-                    <span className={styles.price}>
-                        &#8364; 180 EUR
-                    </span>
-                </div>
-                <div className={styles.card}>
-                    <img
-                        className={styles.productImg}
-                        src={shoeImg1}
-                        alt=""
-                    />
-                    <img
-                        className={styles.brandImg}
-                        src={unisexLogo}
-                        alt=""
-                    />
-                    <span className={styles.numberText}>
-                        ss/20
-                    </span>
-                    <h3 className={styles.productTitle}>
-                        Cactus
-                    </h3>
-                    <del className={styles.strikePrice}>
-                        &#8364; 300 EUR
-                    </del>
-                    <span className={styles.price}>
-                        &#8364; 180 EUR
-                    </span>
-                </div>
-                <div className={styles.card}>
-                    <img
-                        className={styles.productImg}
-                        src={shoeImg1}
-                        alt=""
-                    />
-                    <img
-                        className={styles.brandImg}
-                        src={unisexLogo}
-                        alt=""
-                    />
-                    <span className={styles.numberText}>
-                        ss/20
-                    </span>
-                    <h3 className={styles.productTitle}>
-                        Cactus
-                    </h3>
-                    <del className={styles.strikePrice}>
-                        &#8364; 300 EUR
-                    </del>
-                    <span className={styles.price}>
-                        &#8364; 180 EUR
-                    </span>
-                </div>
-                <div className={styles.card}>
-                    <img
-                        className={styles.productImg}
-                        src={shoeImg1}
-                        alt=""
-                    />
-                    <img
-                        className={styles.brandImg}
-                        src={unisexLogo}
-                        alt=""
-                    />
-                    <span className={styles.numberText}>
-                        ss/20
-                    </span>
-                    <h3 className={styles.productTitle}>
-                        Cactus
-                    </h3>
-                    <del className={styles.strikePrice}>
-                        &#8364; 300 EUR
-                    </del>
-                    <span className={styles.price}>
-                        &#8364; 180 EUR
-                    </span>
-                </div>
+            <div
+                className={`${styles.cardsContainer} ${isDown ? styles.active : ""}`}
+                ref={cardsContainerRef}
+                onMouseDown={handleMouseDown}
+                onMouseMove={handleMouseMove}
+                onMouseLeave={handleMouseLeave}
+                onMouseUp={handleMouseUp}
+            >
+                {
+                    tempArr.map((_, index) => {
+                        return (
+                            <Card
+                                key={index}
+                                productImg={shoeImg1}
+                                brandImg={unisexLogo}
+                                numberText="01"
+                                productTitle="Cactus"
+                                strikePrice="199"
+                                price="99"
+                            />
+                        );
+                    })
+                }
             </div>
 
             <div className={styles.btnContainer}>
@@ -179,7 +93,7 @@ function Catalog() {
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     );
 }
 

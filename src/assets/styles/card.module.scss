@@ -1,0 +1,45 @@
+.card {
+    background-color: #e7d6c4;
+    border: max(0.2vw, 2px) solid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1vw 3vw;
+    font-family: "Bebas Neue", sans-serif;
+    text-transform: uppercase;
+    -webkit-user-select: none;
+    user-select: none;
+
+    img {
+        -webkit-user-drag: none;
+    }
+
+    .productImg {
+        width: max(8rem, 18vw);
+    }
+
+    .brandImg {
+        width: max(2.5rem, 5vw);
+        margin-top: max(7px, 1vw);
+    }
+
+    .numberText {
+        font-size: max(0.7rem, 1.1vw);
+        margin-top: max(5px, 1vw);
+    }
+
+    .productTitle {
+        font-family: "DM Serif Display", serif;
+        font-size: max(1.5rem, 3.3vw);
+    }
+
+    .strikePrice {
+        font-size: max(0.7rem, 1.2vw);
+        margin-top: 0.6vw;
+    }
+
+    .price {
+        font-size: max(1.1rem, 2vw);
+        margin-top: 0.4vw;
+    }
+}
