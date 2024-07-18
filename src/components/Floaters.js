@@ -40,9 +40,18 @@ function Floaters() {
             {/* left bottom */}
             <div className={styles.bottomNavContainer}>
                 <ul>
-                    <li>Shop</li>
-                    <li>Collections</li>
-                    <li>About</li>
+                    <li>
+                        <span>Shop</span>
+                        <span>Shop</span>
+                    </li>
+                    <li>
+                        <span>Collections</span>
+                        <span>Collections</span>
+                    </li>
+                    <li>
+                        <span>About</span>
+                        <span>About</span>
+                    </li>
                 </ul>
             </div>
 

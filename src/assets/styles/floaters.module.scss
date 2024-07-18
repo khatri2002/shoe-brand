@@ -35,7 +35,7 @@
             font-family: "Roboto", sans-serif;
             display: block;
             font-size: max(0.8rem, 0.9vw);
-            animation: slide-bottom 1s cubic-bezier(0.23, 0.94, 0.55, 0.98) both;
+            animation: slide-bottom 1.4s cubic-bezier(0.23, 0.94, 0.55, 0.98) both;
         }
 
         span:last-of-type {
@@ -71,26 +71,6 @@
     }
 }
 
-@keyframes slide-top {
-    0% {
-        transform: translateY(0);
-    }
-
-    100% {
-        transform: translateY(-100%);
-    }
-}
-@keyframes slide-bottom {
-    0% {
-        transform: translateY(-100%);
-    }
-
-    100% {
-        transform: translateY(0);
-    }
-}
-
-
 .bottomNavContainer {
     position: fixed;
     bottom: 1.6vw;
@@ -101,11 +81,28 @@
         list-style-type: none;
 
         li {
-            text-transform: uppercase;
-            font-family: "Roboto", sans-serif;
-            font-size: max(0.8rem, 0.9vw);
-            margin-bottom: max(0.4rem, 0.4vw);
             cursor: pointer;
+            margin-bottom: max(0.4rem, 0.4vw);
+            position: relative;
+            overflow: hidden;
+
+            span {
+                display: block;
+                text-transform: uppercase;
+                font-family: "Roboto", sans-serif;
+                font-size: max(0.8rem, 0.9vw);
+                animation: slide-bottom 1s cubic-bezier(0.23, 0.94, 0.55, 0.98) both;
+            }
+
+            span:last-of-type {
+                position: absolute;
+            }
+
+            &:hover {
+                span {
+                    animation: slide-top 1.4s cubic-bezier(0.23, 0.94, 0.55, 0.98) both;
+                }
+            }
         }
     }
 
@@ -113,7 +110,6 @@
         display: none;
     }
 }
-
 
 .cookiesContainer {
     background-color: #000;
@@ -151,5 +147,26 @@
     @media (width <=400px) {
         left: 50%;
         transform: translate(-50%, 0);
+    }
+}
+
+
+@keyframes slide-top {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-100%);
+    }
+}
+
+@keyframes slide-bottom {
+    0% {
+        transform: translateY(-100%);
+    }
+
+    100% {
+        transform: translateY(0);
     }
 }
