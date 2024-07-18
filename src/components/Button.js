@@ -4,10 +4,10 @@ import {ReactComponent as ArrowIcon} from "../assets/images/arrow_icon.svg";
 
 import styles from "../assets/styles/Button.module.scss";
 
-function Button({title, direction}) {
+function Button({title, direction, onClick}) {
     return (
         <>
-            <div className={styles.btnContainer}>
+            <div className={styles.btnContainer} onClick={onClick}>
                 {
                     title &&
                     <h3>

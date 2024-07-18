@@ -37,7 +37,10 @@ function Footer() {
                         </ul>
                     </div>
                     <div className={styles.btnItem}>
-                        <Button direction="up" />
+                        <Button 
+                            direction="up" 
+                            onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})} 
+                        />
                     </div>
                     <div className={styles.textItem}>
                         <span className={styles.textSmall}>Credits</span>
