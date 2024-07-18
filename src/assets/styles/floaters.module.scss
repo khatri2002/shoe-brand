@@ -23,16 +23,33 @@
         }
     }
 
-
-    span {
-        font-family: "Roboto", sans-serif;
-        display: block;
+    .rightSubTitle {
+        height: fit-content;
         margin-top: 2vw;
         margin-right: 1vw;
-        font-size: max(0.8rem, 0.9vw);
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+
+        span {
+            font-family: "Roboto", sans-serif;
+            display: block;
+            font-size: max(0.8rem, 0.9vw);
+            animation: slide-bottom 1s cubic-bezier(0.23, 0.94, 0.55, 0.98) both;
+        }
+
+        span:last-of-type {
+            position: absolute;
+        }
+
+        &:hover {
+            span {
+                animation: slide-top 1s cubic-bezier(0.23, 0.94, 0.55, 0.98) both;
+            }
+        }
     }
 
-    @media (width <= 992px) {
+    @media (width <=992px) {
         padding-block: max(1.4rem, 4vw);
         align-items: center;
         width: 89vw;
@@ -40,7 +57,7 @@
         .leftTitle {
             transform: rotate(0deg);
             margin: 0 !important;
-            
+
             h3 {
                 font-size: max(0.8rem, 2.5vw);
                 word-spacing: 0.6vw;
@@ -48,11 +65,31 @@
         }
 
 
-        span {
+        .rightSubTitle {
             margin: 0;
         }
     }
 }
+
+@keyframes slide-top {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-100%);
+    }
+}
+@keyframes slide-bottom {
+    0% {
+        transform: translateY(-100%);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
 
 .bottomNavContainer {
     position: fixed;
@@ -72,10 +109,11 @@
         }
     }
 
-    @media (width <= 992px) {
+    @media (width <=992px) {
         display: none;
     }
 }
+
 
 .cookiesContainer {
     background-color: #000;
@@ -110,7 +148,7 @@
         }
     }
 
-    @media (width <= 400px) {
+    @media (width <=400px) {
         left: 50%;
         transform: translate(-50%, 0);
     }

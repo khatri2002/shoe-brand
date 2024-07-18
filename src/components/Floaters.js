@@ -33,6 +33,7 @@ function Floaters() {
                 </div>
                 <div className={styles.rightSubTitle}>
                     <span>Cart</span>
+                    <span>Cart</span>
                 </div>
             </div>
 
