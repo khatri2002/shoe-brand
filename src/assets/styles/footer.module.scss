@@ -72,10 +72,28 @@
             ul {
                 list-style-type: none;
                 margin-top: 1.2vw;
-                font-size: max(0.9rem, 1.9vw);
-
+                
                 li {
                     margin-block: 0.7vw;
+                    position: relative;
+                    overflow: hidden;
+                    cursor: pointer;
+                    
+                    span {
+                        font-size: max(0.9rem, 1.9vw);
+                        display: block;
+                        animation: slide-bottom 1.4s cubic-bezier( 0.23, 0.94, 0.55, 0.98 ) both;
+                    }
+
+                    span:last-of-type {
+                        position: absolute;
+                    }
+
+                    &:hover {
+                        span {
+                            animation: slide-top 1.4s cubic-bezier( 0.23, 0.94, 0.55, 0.98 ) both;
+                        }
+                    }
                 }
             }
         }
@@ -110,5 +128,24 @@
             row-gap: 1rem;
             column-gap: 1.1rem;
         }
+    }
+}
+
+@keyframes slide-top {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-100%);
+    }
+}
+@keyframes slide-bottom {
+    0% {
+        transform: translateY(-100%);
+    }
+
+    100% {
+        transform: translateY(0);
     }
 }

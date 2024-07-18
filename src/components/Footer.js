@@ -23,17 +23,35 @@ function Footer() {
                     <div className={styles.navigationItem}>
                         <span className={styles.textSmall}>Info</span>
                         <ul>
-                            <li>FAQ</li>
-                            <li>Returns</li>
-                            <li>Contact</li>
+                            <li>
+                                <span>FAQ</span>
+                                <span>FAQ</span>
+                            </li>
+                            <li>
+                                <span>Returns</span>
+                                <span>Returns</span>
+                            </li>
+                            <li>
+                                <span>Contact</span>
+                                <span>Contact</span>
+                            </li>
                         </ul>
                     </div>
                     <div className={styles.navigationItem}>
                         <span className={styles.textSmall}>Policy</span>
                         <ul>
-                            <li>Terms</li>
-                            <li>Privacy</li>
-                            <li>Cookie</li>
+                            <li>
+                                <span>Terms</span>
+                                <span>Terms</span>
+                            </li>
+                            <li>
+                                <span>Privacy</span>
+                                <span>Privacy</span>
+                            </li>
+                            <li>
+                                <span>Cookie</span>
+                                <span>Cookie</span>
+                            </li>
                         </ul>
                     </div>
                     <div className={styles.btnItem}>
