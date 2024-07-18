@@ -1,6 +1,24 @@
+import { useEffect, useState } from "react";
 import styles from "../assets/styles/floaters.module.scss";
+import animationStyles from "../assets/styles/animations.module.scss";
 
 function Floaters() {
+
+    const [showCookies, setShowCookies] = useState(false);
+    const [hideCookies, setHideCookies] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if(window.scrollY > 1000 && !showCookies) {
+                setShowCookies(true);
+            }
+        }
+        window.addEventListener("scroll", handleScroll);
+
+        // cleanup
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, [showCookies]);
+
     return (
         <>
             {/* top */}
@@ -23,7 +41,13 @@ function Floaters() {
             </div>
 
             {/* right bottom */}
-            <div className={styles.cookiesContainer}>
+            <div 
+                className={`
+                    ${styles.cookiesContainer}
+                    ${showCookies ? animationStyles.slideTopFadeIn : ""}
+                    ${hideCookies ? animationStyles.slideDownFadeOut : ""}
+                `}
+            >
                 <div>
                     <span>
                         This website use <a href="/">cookies</a>.
@@ -33,7 +57,7 @@ function Floaters() {
                     </span>
                 </div>
                 <div>
-                    <span>OK</span>
+                    <span onClick={() => setHideCookies(true)}>OK</span>
                 </div>
             </div>
         </>

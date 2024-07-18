@@ -84,6 +84,8 @@
     font-size: max(0.5rem, 0.9vw);
     padding: max(0.4rem, 1vw) max(1rem, 1.5vw);
     z-index: 9999;
+    opacity: 0;
+    transform: translateY(100%);
 
     :first-child {
         span {
@@ -92,6 +94,7 @@
 
         a {
             text-decoration: underline;
+            color: #fff;
         }
     }
 

@@ -46,3 +46,33 @@
         transform: translateX(0);
     }
 }
+
+.slideTopFadeIn {
+    animation: slide-top-fade-in 0.5s cubic-bezier( 0.23, 0.94, 0.55, 0.98 ) both;
+}
+@keyframes slide-top-fade-in {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.slideDownFadeOut {
+    animation: slide-down-fade-out 0.5s cubic-bezier( 0.23, 0.94, 0.55, 0.98 ) both;
+}
+@keyframes slide-down-fade-out {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+}
