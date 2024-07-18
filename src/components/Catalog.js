@@ -61,6 +61,7 @@ function Catalog() {
 
             <div
                 ref={cardsWrapperRef}
+                className={animationStyles.wrapper}
             >
                 <div
                     className={

@@ -9,16 +9,20 @@
     text-transform: uppercase;
     z-index: 9999;
 
-    h3 {
-        font-family: "DM Serif Display", serif;
+    .leftTitle {
         transform: rotate(-90deg);
         margin-top: 9vw;
         margin-left: -6vw;
-        font-size: 1.7vw;
-        font-weight: normal;
-        word-spacing: 1vw;
-        cursor: pointer;
+
+        h3 {
+            font-family: "DM Serif Display", serif;
+            font-size: 1.7vw;
+            font-weight: normal;
+            word-spacing: 1vw;
+            cursor: pointer;
+        }
     }
+
 
     span {
         font-family: "Roboto", sans-serif;
@@ -33,14 +37,16 @@
         align-items: center;
         width: 89vw;
 
-        h3 {
-            margin: 0 !important;
+        .leftTitle {
             transform: rotate(0deg);
-            margin-top: 4vw;
-            margin-left: 5vw;
-            font-size: max(0.8rem, 2.5vw);
-            word-spacing: 0.6vw;
+            margin: 0 !important;
+            
+            h3 {
+                font-size: max(0.8rem, 2.5vw);
+                word-spacing: 0.6vw;
+            }
         }
+
 
         span {
             margin: 0;

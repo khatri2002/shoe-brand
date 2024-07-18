@@ -4,12 +4,14 @@ import animationStyles from "../assets/styles/animations.module.scss";
 
 function Floaters() {
 
+    // cookies state
     const [showCookies, setShowCookies] = useState(false);
     const [hideCookies, setHideCookies] = useState(false);
 
+    // show cookies on scroll
     useEffect(() => {
         const handleScroll = () => {
-            if(window.scrollY > 1000 && !showCookies) {
+            if (window.scrollY > 1000 && !showCookies) {
                 setShowCookies(true);
             }
         }
@@ -19,12 +21,15 @@ function Floaters() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, [showCookies]);
 
+    // hide title animation on small screens
+    const isSmallScreen = window.innerWidth <= 992;
+
     return (
         <>
             {/* top */}
             <div className={styles.topNavContainer}>
-                <div className={styles.leftTitle}>
-                    <h3>Deplace Maison</h3>
+                <div className={`${styles.leftTitle} ${animationStyles.wrapper}`}>
+                    <h3 className={`${!isSmallScreen ? animationStyles.slideTop1 : ""}`}>Deplace Maison</h3>
                 </div>
                 <div className={styles.rightSubTitle}>
                     <span>Cart</span>
@@ -41,7 +46,7 @@ function Floaters() {
             </div>
 
             {/* right bottom */}
-            <div 
+            <div
                 className={`
                     ${styles.cookiesContainer}
                     ${showCookies ? animationStyles.slideTopFadeIn : ""}
