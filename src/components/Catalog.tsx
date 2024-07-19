@@ -29,6 +29,9 @@ const Catalog = () => {
     const [isDown, setIsDown] = useState<boolean>(false);
     const [startX, setStartX] = useState<number>(0);
     const [scrollLeft, setScrollLeft] = useState<number>(0);
+    const [velocity, setVelocity] = useState<number>(0);
+    const [lastX, setLastX] = useState<number>(0);
+    const [lastTime, setLastTime] = useState<number>(0);
 
     const handleMouseDown = (e: React.MouseEvent) => {
         setIsDown(true);
@@ -38,6 +41,8 @@ const Catalog = () => {
         setStartX(startX);
         const scrollLeft = cardsContainer.scrollLeft;
         setScrollLeft(scrollLeft);
+        setLastX(e.pageX);
+        setLastTime(Date.now());
     }
     const handleTouchStart = (e: React.TouchEvent) => {
         setIsDown(true);
@@ -57,6 +62,16 @@ const Catalog = () => {
         const x = e.pageX - cardsContainer.offsetLeft;
         const walk = x - startX;
         cardsContainer.scrollLeft = scrollLeft - walk;
+
+        // Calculate velocity
+        const time = Date.now();
+        const distance = e.pageX - lastX;
+        const timeDiff = time - lastTime;
+        const velocity = distance / timeDiff;
+
+        setLastX(e.pageX);
+        setLastTime(time);
+        setVelocity(velocity);
     }
     const handleTouchMove = (e: React.TouchEvent) => {
         if (!isDown) return;
@@ -66,6 +81,35 @@ const Catalog = () => {
         const x = e.touches[0].pageX - cardsContainer.offsetLeft;
         const walk = x - startX;
         cardsContainer.scrollLeft = scrollLeft - walk;
+
+        // Calculate velocity
+        const distance = e.touches[0].pageX - lastX;
+        const timeDiff = Date.now() - lastTime;
+        const velocity = distance / timeDiff;
+
+        setLastX(e.touches[0].pageX);
+        setLastTime(Date.now());
+        setVelocity(velocity);
+    }
+
+    const handleEnd = () => {
+        setIsDown(false);
+        
+        // apply momentum scroll
+        const cardsContainer = cardsContainerRef.current;
+        if(!cardsContainer) return;
+
+        let currentVelocity = velocity;
+        const deceleration = 0.95;
+
+        const step= () => {
+            if(Math.abs(currentVelocity) > 0.1) {
+                cardsContainer.scrollLeft -= currentVelocity * 16;
+                currentVelocity *= deceleration;
+                requestAnimationFrame(step);
+            }
+        }
+        requestAnimationFrame(step);
     }
 
     return (
@@ -91,12 +135,12 @@ const Catalog = () => {
                     ref={cardsContainerRef}
                     onMouseDown={handleMouseDown}
                     onMouseMove={handleMouseMove}
-                    onMouseLeave={() => setIsDown(false)}
-                    onMouseUp={() => setIsDown(false)}
+                    onMouseLeave={handleEnd}
+                    onMouseUp={handleEnd}
 
                     onTouchStart={handleTouchStart}
                     onTouchMove={handleTouchMove}
-                    onTouchEnd={() => setIsDown(false)}
+                    onTouchEnd={handleEnd}
                 >
                     {
                         tempArr.map((_, index) => {
