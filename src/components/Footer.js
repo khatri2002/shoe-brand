@@ -61,7 +61,7 @@ function Footer() {
                         />
                     </div>
                     <div className={styles.textItem}>
-                        <span className={styles.textSmall}>Credits</span>
+                        <span className={`${styles.textSmall} ${styles.cursorPointer}`}>Credits</span>
                     </div>
                     <div className={styles.textItem}>
                         <span className={styles.textSmall}>&#169; 2020 Deplace Masion.</span>

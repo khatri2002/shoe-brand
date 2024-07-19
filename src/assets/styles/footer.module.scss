@@ -14,6 +14,9 @@
         font-size: max(0.6rem, 1vw);
         text-wrap: nowrap;
     }
+    .cursorPointer {
+        cursor: pointer;
+    }
 
     .subscribeItem {
         display: flex;
@@ -77,6 +80,7 @@
                     margin-block: 0.7vw;
                     position: relative;
                     overflow: hidden;
+                    display: table;
                     cursor: pointer;
                     
                     span {
@@ -110,6 +114,7 @@
             .icon {
                 width: max(1rem, 1.7vw);
                 height: max(1rem, 1.7vw);
+                cursor: pointer;
             }
         }
     }
