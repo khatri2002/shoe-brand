@@ -135,7 +135,7 @@ const Catalog = () => {
                     ref={cardsContainerRef}
                     onMouseDown={handleMouseDown}
                     onMouseMove={handleMouseMove}
-                    onMouseLeave={handleEnd}
+                    onMouseLeave={() => isDown && handleEnd()}
                     onMouseUp={handleEnd}
 
                     onTouchStart={handleTouchStart}
