@@ -2,13 +2,13 @@ import { useEffect, useState } from "react";
 import styles from "../assets/styles/loader.module.scss";
 import animationStyles from "../assets/styles/animations.module.scss";
 
-function Loader() {
+const Loader = () => {
 
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState<boolean>(true);
 
-    const percentages = [30, 68, 87, 100];
-    const [activeIndex, setActiveIndex] = useState(0);
-    const [exitIndices, setExitIndices] = useState([]);
+    const percentages: number[] = [30, 68, 87, 100];
+    const [activeIndex, setActiveIndex] = useState<number>(0);
+    const [exitIndices, setExitIndices] = useState<number[]>([]);
 
     useEffect(() => {
 

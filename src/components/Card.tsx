@@ -1,6 +1,15 @@
 import styles from "../assets/styles/card.module.scss";
 
-function Card({productImg, brandImg, numberText, productTitle, strikePrice, price}) {
+type CardProps = {
+    productImg: any;
+    brandImg: any;
+    numberText: string;
+    productTitle: string;
+    strikePrice: number;
+    price: number;
+};
+
+const Card = ({productImg, brandImg, numberText, productTitle, strikePrice, price}: CardProps) => {
     return (
         <div className={styles.card}>
             <img

@@ -1,10 +1,17 @@
 import { useEffect, useState } from "react";
 
-function UseElementOnScreen(options, containerRef) {
+type UseElementOnScreenProps = {
+    options: {
+        threshold: number;
+    };
+    containerRef: React.RefObject<HTMLDivElement>;
+}
+
+const UseElementOnScreen = ({options, containerRef}: UseElementOnScreenProps) => {
     const [isVisible, setIsVisible] = useState(false);
     const [isInitiallyVisible, setInitiallyVisible] = useState(false);
 
-    const callBackFunction = (entries) => {
+    const callBackFunction = (entries: IntersectionObserverEntry[]) => {
         const [entry] = entries;
         setIsVisible(entry.isIntersecting);
     }
@@ -12,7 +19,7 @@ function UseElementOnScreen(options, containerRef) {
     useEffect(() => {
         const observer = new IntersectionObserver(callBackFunction, options);
         const currentContainerRef = containerRef.current;
-        if (containerRef.current) observer.observe(currentContainerRef);
+        if (currentContainerRef) observer.observe(currentContainerRef);
 
         return () => {
             if (currentContainerRef) observer.unobserve(currentContainerRef);

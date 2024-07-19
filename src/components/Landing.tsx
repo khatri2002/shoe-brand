@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react";
 
+import Button from "./Button";
+
 import styles from "../assets/styles/landing.module.scss";
 import animationStyles from "../assets/styles/animations.module.scss";
 
 import featuredShoeImg1 from "../assets/images/featured_shoe_img_1.jpeg";
 import featuredShoeImg2 from "../assets/images/featured_shoe_img_2.jpeg";
-import Button from "./Button";
 
-function Landing() {
+const Landing = () => {
 
-    const [zoom, setZoom] = useState(1);
+    const [zoom, setZoom] = useState<number>(1);
 
     const handleScroll = () => {
         const scrollY = window.scrollY;

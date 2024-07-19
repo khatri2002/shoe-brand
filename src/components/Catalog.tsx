@@ -1,41 +1,50 @@
-import Button from "../components/Button";
+import { useRef, useState } from "react";
+
+import UseElementOnScreen from "Hooks/UseElementOnScreen";
+
+import Button from "components/Button";
+import Card from "./Card";
 
 import styles from "../assets/styles/catalog.module.scss";
 import animationStyles from "../assets/styles/animations.module.scss";
 
 import shoeImg1 from "../assets/images/shoe_1.png";
 import unisexLogo from "../assets/images/unisex_logo.svg";
-import Card from "./Card";
-import { useRef, useState } from "react";
-import UseElementOnScreen from "../Hooks/UseElementOnScreen";
 
-function Catalog() {
+const Catalog = () => {
 
     const tempArr = Array(10).fill(0);
 
-    const cardsContainerRef = useRef(null);
-    const cardsWrapperRef = useRef(null);
+    const cardsContainerRef = useRef<HTMLDivElement>(null);
+    const cardsWrapperRef = useRef<HTMLDivElement>(null);
 
-    const [isCardsWrapperVisible] = UseElementOnScreen({ threshold: 0.5 }, cardsWrapperRef);
+    const [isCardsWrapperVisible] = UseElementOnScreen({
+        options: {
+            threshold: 0.5
+        },
+        containerRef: cardsWrapperRef
+    })
 
     // Mouse events for scrolling the cards container
-    const [isDown, setIsDown] = useState(false);
-    const [startX, setStartX] = useState(0);
-    const [scrollLeft, setScrollLeft] = useState(0);
+    const [isDown, setIsDown] = useState<boolean>(false);
+    const [startX, setStartX] = useState<number>(0);
+    const [scrollLeft, setScrollLeft] = useState<number>(0);
 
-    const handleMouseDown = (e) => {
+    const handleMouseDown = (e: React.MouseEvent) => {
         setIsDown(true);
         const cardsContainer = cardsContainerRef.current;
+        if(!cardsContainer) return;
         const startX = e.pageX - cardsContainer.offsetLeft;
         setStartX(startX);
         const scrollLeft = cardsContainer.scrollLeft;
         setScrollLeft(scrollLeft);
     }
 
-    const handleMouseMove = (e) => {
+    const handleMouseMove = (e: React.MouseEvent) => {
         if (!isDown) return;
         e.preventDefault();
         const cardsContainer = cardsContainerRef.current;
+        if(!cardsContainer) return;
         const x = e.pageX - cardsContainer.offsetLeft;
         const walk = x - startX;
         cardsContainer.scrollLeft = scrollLeft - walk;
@@ -84,8 +93,8 @@ function Catalog() {
                                     brandImg={unisexLogo}
                                     numberText="01"
                                     productTitle="Cactus"
-                                    strikePrice="199"
-                                    price="99"
+                                    strikePrice={199}
+                                    price={99}
                                 />
                             );
                         })

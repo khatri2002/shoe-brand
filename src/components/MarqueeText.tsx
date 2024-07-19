@@ -1,6 +1,6 @@
 import styles from '../assets/styles/marqueeText.module.scss';
 
-function MarqueeText() {
+const MarqueeText = () => {
     return (
         <>
             <div className={styles.marqueeContainer}>

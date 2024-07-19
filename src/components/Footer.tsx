@@ -1,16 +1,18 @@
-import styles from "../assets/styles/footer.module.scss";
-import newsletterIcon from "../assets/images/newsletter_icon.svg";
 import Button from "./Button";
-import { ReactComponent as FacebookIcon } from "../assets/images/facebook_icon.svg";
-import { ReactComponent as InstagramIcon } from "../assets/images/instagram_icon.svg";
 
-function Footer() {
+import styles from "../assets/styles/footer.module.scss";
+
+import NewsletterIcon from "../assets/images/newsletter_icon.svg";
+import FacebookIcon from "../assets/images/facebook_icon.svg";
+import InstagramIcon from "../assets/images/instagram_icon.svg";
+
+const Footer = () => {
     return (
         <>
             <div className={styles.footerContainer}>
                 <div className={styles.subscribeItem}>
                     <span className={styles.textSmall}>Subscribe to newsletter</span>
-                    <img src={newsletterIcon} alt="newsletter-icon" />
+                    <img src={NewsletterIcon} alt="newsletter-icon" />
                     <label htmlFor="email">
                         Subscribe to our newsletter
                     </label>
@@ -67,8 +69,8 @@ function Footer() {
                         <span className={styles.textSmall}>&#169; 2020 Deplace Masion.</span>
                     </div>
                     <div className={styles.socialsItem}>
-                        <FacebookIcon className={styles.icon} />
-                        <InstagramIcon className={styles.icon} />
+                        <img src={FacebookIcon} className={styles.icon} alt="facebook-icon" />
+                        <img src={InstagramIcon} className={styles.icon} alt="instagram-icon" />
                     </div>
                 </div>
             </div>

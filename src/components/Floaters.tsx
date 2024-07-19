@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 import styles from "../assets/styles/floaters.module.scss";
 import animationStyles from "../assets/styles/animations.module.scss";
 
-function Floaters() {
+const Floaters = () => {
 
     // cookies state
-    const [showCookies, setShowCookies] = useState(false);
-    const [hideCookies, setHideCookies] = useState(false);
+    const [showCookies, setShowCookies] = useState<boolean>(false);
+    const [hideCookies, setHideCookies] = useState<boolean>(false);
 
     // show cookies on scroll
     useEffect(() => {

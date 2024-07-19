@@ -1,11 +1,11 @@
-import Catalog from "../components/Catalog";
-import Landing from "../components/Landing";
+import Loader from "components/Loader";
+import Floaters from "components/Floaters";
+import Landing from "components/Landing";
 import MarqueeText from "../components/MarqueeText";
-import Footer from "../components/Footer";
-import Floaters from "../components/Floaters";
-import Loader from "../components/Loader";
+import Catalog from "components/Catalog";
+import Footer from "components/Footer";
 
-function Home() {
+const Home = () => {
     return (
         <>
             <Loader />
