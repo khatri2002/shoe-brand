@@ -39,6 +39,15 @@ const Catalog = () => {
         const scrollLeft = cardsContainer.scrollLeft;
         setScrollLeft(scrollLeft);
     }
+    const handleTouchStart = (e: React.TouchEvent) => {
+        setIsDown(true);
+        const cardsContainer = cardsContainerRef.current;
+        if(!cardsContainer) return;
+        const startX = e.touches[0].pageX - cardsContainer.offsetLeft;
+        setStartX(startX);
+        const scrollLeft = cardsContainer.scrollLeft;
+        setScrollLeft(scrollLeft);
+    }
 
     const handleMouseMove = (e: React.MouseEvent) => {
         if (!isDown) return;
@@ -49,13 +58,14 @@ const Catalog = () => {
         const walk = x - startX;
         cardsContainer.scrollLeft = scrollLeft - walk;
     }
-
-    const handleMouseLeave = () => {
-        setIsDown(false);
-    }
-
-    const handleMouseUp = () => {
-        setIsDown(false);
+    const handleTouchMove = (e: React.TouchEvent) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const cardsContainer = cardsContainerRef.current;
+        if(!cardsContainer) return;
+        const x = e.touches[0].pageX - cardsContainer.offsetLeft;
+        const walk = x - startX;
+        cardsContainer.scrollLeft = scrollLeft - walk;
     }
 
     return (
@@ -81,8 +91,12 @@ const Catalog = () => {
                     ref={cardsContainerRef}
                     onMouseDown={handleMouseDown}
                     onMouseMove={handleMouseMove}
-                    onMouseLeave={handleMouseLeave}
-                    onMouseUp={handleMouseUp}
+                    onMouseLeave={() => setIsDown(false)}
+                    onMouseUp={() => setIsDown(false)}
+
+                    onTouchStart={handleTouchStart}
+                    onTouchMove={handleTouchMove}
+                    onTouchEnd={() => setIsDown(false)}
                 >
                     {
                         tempArr.map((_, index) => {
